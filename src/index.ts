@@ -10,7 +10,7 @@ const token = process.env.TOKEN
 
 let logLevel = LogLevel.ERROR
 
-const MORNING = '09:00'
+const MORNING = '08:30'
 const CHANNEL_ID = 'C01GVRGFF8Q' // dev-team
 //const CHANNEL_ID = 'U01G1KRQXUG' // Me
 
@@ -38,11 +38,19 @@ async function init(): Promise<void> {
     const hours = time.split(':')[0]
     const minutes = time.split(':')[1]
 
+    // Get data
+    const data = (await getData()) as NationalDay[]
+    // Sort by popularity
+    data.sort((a: NationalDay, b: NationalDay) => {
+      return b.popularity - a.popularity
+    })
+
+    console.log(data)
+
     if (`${hours}:${minutes}` == MORNING) {
       clearInterval(interval)
 
-      // Get data
-      const data = (await getData()) as NationalDay[]
+      console.log(data)
 
       let buildMessage = (today: NationalDay[]) => {
         let blocks = []
@@ -69,23 +77,42 @@ async function init(): Promise<void> {
           },
           {
             type: 'divider',
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: "Here's today's most popular national day.",
+            },
           }
         )
 
-        today.forEach(
-          ({ title, description, popularity, imageUrl, url }: NationalDay) => {
-            blocks.push({
-              type: 'section',
-              text: {
-                type: 'mrkdwn',
-                text: `*<${url}|${title}>*\n${description}`,
-              },
-              accessory: {
-                type: 'image',
-                image_url: imageUrl,
-                alt_text: 'image',
-              },
-            })
+        let { title, description, popularity, imageUrl, url }: NationalDay =
+          today[0]
+
+        blocks.push({
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: `*<${url}|${title}>*\n${description}`,
+          },
+          accessory: {
+            type: 'image',
+            image_url: imageUrl,
+            alt_text: 'image',
+          },
+        })
+
+        blocks.push(
+          {
+            type: 'divider',
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: 'Wanna see more? <https://nationaltoday.com/what-is-today/|Click here.>',
+            },
           }
         )
 
