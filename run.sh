@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
-cd $HOME/projects/national-today
+#!/bin/bash
+cd $HOME/personal/national-today
 /usr/local/bin/npm run start
 
