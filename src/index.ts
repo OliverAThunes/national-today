@@ -22,6 +22,7 @@ const randomText = [
   'Another day, another fifty national days :calendar:',
   'Try not to miss bagel day this year. :bagel:',
   'Please send any complaints that you might have to miles@netron.no :email:',
+  "If you're reading this, react to this post with :cool:",
 ]
 
 async function init(): Promise<void> {
