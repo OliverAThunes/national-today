@@ -46,12 +46,8 @@ async function init(): Promise<void> {
       return b.popularity - a.popularity
     })
 
-    console.log(data)
-
     if (`${hours}:${minutes}` == MORNING) {
       clearInterval(interval)
-
-      console.log(data)
 
       let buildMessage = (today: NationalDay[]) => {
         let blocks = []

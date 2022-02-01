@@ -19,7 +19,7 @@ export async function getData() {
           image = image.slice(22, image.length - 2)
           popularity = popularity.slice(0, popularity.length - 7)
           let popularityNum: number = parseInt(popularity)
-          if (popularity.includes('k')) {
+          if (popularity.includes('K')) {
             popularityNum = unabbrNum(popularity)
           }
 
