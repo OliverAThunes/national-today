@@ -16,7 +16,7 @@ const CHANNEL_ID = 'C01GVRGFF8Q' // dev-team
 
 const randomText = [
   'National day galore! :calendar:',
-  'Huzza! :tada:',
+  'Huzzah! :tada:',
   'National day squadala! :tada:',
   'Another day, another thirty national days :calendar:',
   'Another day, another fifty national days :calendar:',
