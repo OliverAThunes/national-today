@@ -15,14 +15,14 @@ const CHANNEL_ID = 'C01GVRGFF8Q' // dev-team
 //const CHANNEL_ID = 'U01G1KRQXUG' // Me
 
 const randomText = [
-  'National day galore! :calendar:',
-  'Huzzah! :tada:',
-  'National day squadala! :tada:',
+  "It's another national day! :calendar:",
   'Another day, another thirty national days :calendar:',
   'Another day, another fifty national days :calendar:',
   'Try not to miss bagel day this year. :bagel:',
   'Please send any complaints that you might have to miles@netron.no :email:',
   "If you're reading this, react to this post with :cool:",
+  'Why bother writing anything here, none of you are reading this anyway.',
+  ':cmonbrug:',
 ]
 
 async function init(): Promise<void> {
@@ -84,8 +84,7 @@ async function init(): Promise<void> {
           }
         )
 
-        let { title, description, popularity, imageUrl, url }: NationalDay =
-          today[0]
+        let { title, description, popularity, imageUrl, url }: NationalDay = today[0]
 
         blocks.push({
           type: 'section',
