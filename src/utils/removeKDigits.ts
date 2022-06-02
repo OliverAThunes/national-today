@@ -1,3 +1,5 @@
+// Converts a string number K representation to a real number.
+// I.E. 1k becomes 1000
 export function unabbrNum(stringNum: string): number {
   var abbrev = ['k', 'm', 'b', 't']
   stringNum = stringNum.toLowerCase()
