@@ -10,8 +10,8 @@ const token = process.env.TOKEN
 
 let logLevel = LogLevel.ERROR
 
-//const CHANNEL_ID = 'C01GVRGFF8Q' // dev-team
-const CHANNEL_ID = 'U01G1KRQXUG' // Me
+const CHANNEL_ID = 'C01GVRGFF8Q' // dev-team
+//const CHANNEL_ID = 'U01G1KRQXUG' // Me
 
 const randomText = [
   'Try not to miss bagel day this year. :bagel:',
